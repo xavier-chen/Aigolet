@@ -99,7 +99,7 @@ flowchart LR
 ### Install & run
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/xavier-chen/AIgolet-next.git
 cd AIgolet-next
 pnpm install
 pnpm start
