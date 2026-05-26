@@ -1,10 +1,10 @@
 {
-  "name": "aigolet-next",
+  "name": "aigolet",
   "version": "0.1.0",
   "private": true,
   "license": "AGPL-3.0-or-later",
   "description": "Your AI co-founder for running a one-person company — local-first founder operating platform.",
-  "homepage": "https://algolet.com",
+  "homepage": "https://aigolet.com",
   "packageManager": "pnpm@10.33.4",
   "scripts": {
     "prestart": "node scripts/ensure-orchestrator-port.mjs",

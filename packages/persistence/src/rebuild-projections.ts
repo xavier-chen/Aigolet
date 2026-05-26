@@ -1,6 +1,6 @@
 import { AuditProjector, DefaultRedactionPolicy } from '@aigolet-next/audit';
 import { MemoryProjector } from '@aigolet-next/memory';
-import type { AlgoletDatabase } from './database.js';
+import type { AigoletDatabase } from './database.js';
 import {
   SqliteAuditLedger,
   SqliteEventStore,
@@ -21,7 +21,7 @@ export interface RebuildProjectionsResult {
 }
 
 export async function rebuildProjections(
-  db: AlgoletDatabase,
+  db: AigoletDatabase,
   options: RebuildProjectionsOptions = {},
 ): Promise<RebuildProjectionsResult> {
   const dryRun = options.dryRun ?? false;

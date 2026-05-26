@@ -1,4 +1,4 @@
-# AIgolet Next
+# Aigolet
 
 <p align="center">
   <strong>Your AI co-founder for running a one-person company.</strong><br/>
@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <a href="https://algolet.com"><strong>algolet.com</strong></a>
+  <a href="https://aigolet.com"><strong>aigolet.com</strong></a>
 </p>
 
 <p align="center">
@@ -26,13 +26,13 @@
 
 ## Overview
 
-**AIgolet Next** (brand: **[Algolet](https://algolet.com)**) is a local-first desktop platform built for **one-person companies**. It combines an event-sourced orchestrator, SQLite persistence, audit-grade logging, and a polished Electron UI into a single founder cockpit.
+**Aigolet** (brand: **[Aigolet](https://aigolet.com)**) is a local-first desktop platform built for **one-person companies**. It combines an event-sourced orchestrator, SQLite persistence, audit-grade logging, and a polished Electron UI into a single founder cockpit.
 
 The product goal is straightforward:
 
 > Open the app in the morning, know what matters today, work with an AI co-founder that remembers your company, and end the day with a clear record of decisions, outputs, and runway.
 
-This repository is a **self-developed TypeScript monorepo**. It is inspired by ideas from the [OpenClaw](https://github.com/openclaw/openclaw) ecosystem (skills, tool use, founder workflows) but does **not** embed the OpenClaw Gateway. Protocol, persistence, and audit layers are independent. Data lives under `~/.algolet/`; the orchestrator listens on **`:3847`**.
+This repository is a **self-developed TypeScript monorepo**. It is inspired by ideas from the [OpenClaw](https://github.com/openclaw/openclaw) ecosystem (skills, tool use, founder workflows) but does **not** embed the OpenClaw Gateway. Protocol, persistence, and audit layers are independent. Data lives under `~/.aigolet/`; the orchestrator listens on **`:3847`**.
 
 ---
 
@@ -103,8 +103,8 @@ flowchart LR
 ### Install & run
 
 ```bash
-git clone https://github.com/xavier-chen/AIgolet-next.git
-cd AIgolet-next
+git clone https://github.com/xavier-chen/Aigolet.git
+cd Aigolet
 pnpm install
 pnpm start
 ```
@@ -121,8 +121,8 @@ pnpm start
 
 | Path | Purpose |
 |------|---------|
-| `~/.algolet/aigolet.db` | SQLite database |
-| `~/.algolet/workspace/` | Files, uploads, generated artifacts |
+| `~/.aigolet/aigolet.db` | SQLite database |
+| `~/.aigolet/workspace/` | Files, uploads, generated artifacts |
 
 Override with `AIGOLET_DATA_DIR`.
 
@@ -223,7 +223,7 @@ pnpm --filter @aigolet-next/agent-runtime test
 **Monorepo layout**
 
 ```
-AIgolet-next/
+Aigolet/
 ├── apps/
 │   ├── desktop/      # Electron shell
 │   └── server/       # Hono API
@@ -238,11 +238,11 @@ AIgolet-next/
 
 ## Relationship to Aigolet-app / OpenClaw
 
-| | **AIgolet-next** (this repo) | **Aigolet-app** (sibling) |
+| | **Aigolet** (this repo) | **Aigolet-app** (sibling) |
 |--|------------------------------|---------------------------|
 | Runtime | Self-developed orchestrator | Embedded OpenClaw Gateway |
 | Port | `:3847` | `:18789` |
-| Data | `~/.algolet/` | `~/.openclaw/` |
+| Data | `~/.aigolet/` | `~/.openclaw/` |
 | Focus | Founder OS, audit, structured brain | Full OpenClaw channel & skill ecosystem |
 
 ---
@@ -261,7 +261,7 @@ AIgolet-next/
 ## Security notes
 
 - API keys stored via Electron `safeStorage` and synced to server config
-- File tools scoped to `~/.algolet/workspace/`
+- File tools scoped to `~/.aigolet/workspace/`
 - Upload whitelist and 20 MB size limit
 - Admin reset endpoints require confirmation (`/api/admin/*`)
 
@@ -278,7 +278,7 @@ This project is licensed under the **[GNU Affero General Public License v3.0 or 
 | [`docs/OPEN_SOURCE.zh-CN.md`](docs/OPEN_SOURCE.zh-CN.md) | 许可说明（简体中文） |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | How to contribute |
 
-**Summary:** You may read, run, and modify the code. If you distribute the software or offer it as a network service, you must provide corresponding source under the same license. **Algolet / AIgolet trademarks** are not covered by this license.
+**Summary:** You may read, run, and modify the code. If you distribute the software or offer it as a network service, you must provide corresponding source under the same license. **Aigolet / Aigolet trademarks** are not covered by this license.
 
 For commercial licensing outside AGPL terms, contact `legal@aigolet.com` *(replace with your official address)*.
 

@@ -56,7 +56,7 @@ export function createTray(
 ): Tray {
   const icon = loadTrayIcon();
   tray = new Tray(icon);
-  tray.setToolTip('AIgolet Next');
+  tray.setToolTip('Aigolet');
 
   const showWindow = () => {
     if (mainWindow.isDestroyed()) return;
@@ -80,7 +80,7 @@ export function createTray(
 
     return Menu.buildFromTemplate([
       {
-        label: mainWindow.isVisible() ? 'Hide AIgolet' : 'Show AIgolet',
+        label: mainWindow.isVisible() ? 'Hide Aigolet' : 'Show Aigolet',
         click: () => {
           if (mainWindow.isDestroyed()) return;
           if (mainWindow.isVisible()) hideWindow();
@@ -108,7 +108,7 @@ export function createTray(
       },
       { type: 'separator' },
       {
-        label: 'Quit AIgolet',
+        label: 'Quit Aigolet',
         click: () => {
           setQuitting();
           app.quit();

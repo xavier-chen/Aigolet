@@ -1,4 +1,4 @@
-import type { AlgoletDatabase } from './database.js';
+import type { AigoletDatabase } from './database.js';
 import type {
   Artifact,
   ArtifactType,
@@ -29,7 +29,7 @@ function parseJson<T>(value: string | null | undefined, fallback: T): T {
 }
 
 export class SqliteGoalStore {
-  constructor(private readonly db: AlgoletDatabase) {}
+  constructor(private readonly db: AigoletDatabase) {}
 
   list(horizon?: GoalHorizon): Goal[] {
     const rows = horizon
@@ -146,7 +146,7 @@ export class SqliteGoalStore {
 }
 
 export class SqliteDecisionStore {
-  constructor(private readonly db: AlgoletDatabase) {}
+  constructor(private readonly db: AigoletDatabase) {}
 
   list(limit = 100): Decision[] {
     const rows = this.db
@@ -251,7 +251,7 @@ export class SqliteDecisionStore {
 }
 
 export class SqliteCustomerStore {
-  constructor(private readonly db: AlgoletDatabase) {}
+  constructor(private readonly db: AigoletDatabase) {}
 
   list(): Customer[] {
     const rows = this.db
@@ -356,7 +356,7 @@ export class SqliteCustomerStore {
 }
 
 export class SqlitePrincipleStore {
-  constructor(private readonly db: AlgoletDatabase) {}
+  constructor(private readonly db: AigoletDatabase) {}
 
   list(): Principle[] {
     const rows = this.db
@@ -415,7 +415,7 @@ export class SqlitePrincipleStore {
 }
 
 export class SqliteRetrospectiveStore {
-  constructor(private readonly db: AlgoletDatabase) {}
+  constructor(private readonly db: AigoletDatabase) {}
 
   list(): Retrospective[] {
     const rows = this.db
@@ -508,7 +508,7 @@ export class SqliteRetrospectiveStore {
 }
 
 export class SqliteArtifactStore {
-  constructor(private readonly db: AlgoletDatabase) {}
+  constructor(private readonly db: AigoletDatabase) {}
 
   list(): Artifact[] {
     const rows = this.db
@@ -575,7 +575,7 @@ export class SqliteArtifactStore {
 }
 
 export class SqliteTransactionStore {
-  constructor(private readonly db: AlgoletDatabase) {}
+  constructor(private readonly db: AigoletDatabase) {}
 
   list(limit = 500): Transaction[] {
     const rows = this.db
@@ -627,7 +627,7 @@ export class SqliteTransactionStore {
 }
 
 export class SqliteReminderStore {
-  constructor(private readonly db: AlgoletDatabase) {}
+  constructor(private readonly db: AigoletDatabase) {}
 
   list(): Reminder[] {
     const rows = this.db
@@ -700,7 +700,7 @@ export class SqliteReminderStore {
 }
 
 export class SqliteProposalStore {
-  constructor(private readonly db: AlgoletDatabase) {}
+  constructor(private readonly db: AigoletDatabase) {}
 
   list(status?: ProposalStatus): Proposal[] {
     const rows = status
@@ -773,7 +773,7 @@ export class SqliteProposalStore {
 }
 
 export class SqliteFounderSettingsStore {
-  constructor(private readonly db: AlgoletDatabase) {}
+  constructor(private readonly db: AigoletDatabase) {}
 
   getBalance(): number {
     const row = this.db.prepare(`SELECT value FROM meta WHERE key = ?`).get('founder_balance') as
@@ -837,7 +837,7 @@ export interface FounderStores {
   settingsStore: SqliteFounderSettingsStore;
 }
 
-export function createFounderStores(db: AlgoletDatabase): FounderStores {
+export function createFounderStores(db: AigoletDatabase): FounderStores {
   return {
     goalStore: new SqliteGoalStore(db),
     decisionStore: new SqliteDecisionStore(db),

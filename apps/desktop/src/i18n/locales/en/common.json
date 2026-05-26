@@ -1,6 +1,6 @@
 {
   "app": {
-    "name": "AIgolet",
+    "name": "Aigolet",
     "tagline": "Your one-person company, powered by AI"
   },
   "nav": {
@@ -469,7 +469,7 @@
     "themeDark": "Dark theme",
     "themeLightLabel": "Light",
     "themeDarkLabel": "Dark",
-    "about": "About AIgolet",
+    "about": "About Aigolet",
     "llm": {
       "title": "LLM Providers",
       "description": "Configure the LLM API used for colleague reasoning. API keys are encrypted via Electron safeStorage.",

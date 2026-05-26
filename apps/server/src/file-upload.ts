@@ -1,7 +1,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { randomUUID } from 'node:crypto';
 import { basename, extname, join, normalize, relative, resolve } from 'node:path';
-import type { AlgoletDatabase } from '@aigolet-next/persistence';
+import type { AigoletDatabase } from '@aigolet-next/persistence';
 
 export const MAX_UPLOAD_BYTES = 20 * 1024 * 1024;
 
@@ -101,7 +101,7 @@ function maybeTextPreview(absolutePath: string, ext: string, size: number): stri
 }
 
 export function saveUploadedBuffer(
-  db: AlgoletDatabase,
+  db: AigoletDatabase,
   workspaceDir: string,
   buffer: Buffer,
   originalFilename: string,
@@ -158,7 +158,7 @@ export function saveUploadedBuffer(
 }
 
 export async function saveUploadedFileFromBlob(
-  db: AlgoletDatabase,
+  db: AigoletDatabase,
   workspaceDir: string,
   file: File,
   sessionId?: string,

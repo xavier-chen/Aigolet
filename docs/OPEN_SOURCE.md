@@ -9,7 +9,7 @@
 
 ## License
 
-**AIgolet Next** is free software licensed under the **[GNU Affero General Public License v3.0 or later (AGPL-3.0-or-later)](https://www.gnu.org/licenses/agpl-3.0.html)**.
+**Aigolet** is free software licensed under the **[GNU Affero General Public License v3.0 or later (AGPL-3.0-or-later)](https://www.gnu.org/licenses/agpl-3.0.html)**.
 
 The full license text is in the repository root: [`LICENSE`](../LICENSE).
 
@@ -40,9 +40,9 @@ The AGPL extends GPL’s copyleft to **network use**: users who access a modifie
 
 ## Trademarks
 
-The **Algolet** and **AIgolet** names, logos, and product branding are **not** licensed under AGPL.
+The **Aigolet** and **Aigolet** names, logos, and product branding are **not** licensed under AGPL.
 
-This license covers **source code only**. It does not grant permission to use our trademarks in a way that suggests endorsement or to market a fork as an official Algolet product.
+This license covers **source code only**. It does not grant permission to use our trademarks in a way that suggests endorsement or to market a fork as an official Aigolet product.
 
 ---
 

@@ -1,4 +1,4 @@
-# Contributing to AIgolet Next
+# Contributing to Aigolet
 
 Thank you for your interest in contributing. This project is licensed under **AGPL-3.0-or-later**; by contributing, you agree that your contributions will be licensed under the same terms.
 

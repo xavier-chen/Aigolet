@@ -20,7 +20,7 @@ import {
 } from './attachments.js';
 import { buildSkillsSystemBlock, loadEnabledSkills, type LoadedSkill } from './skills.js';
 
-export const DEFAULT_FOUNDER_SYSTEM_PROMPT = `You are AIgolet (Algolet), an AI co-founder assistant helping entrepreneurs build and run a one-person company.
+export const DEFAULT_FOUNDER_SYSTEM_PROMPT = `You are Aigolet (Aigolet), an AI co-founder assistant helping entrepreneurs build and run a one-person company.
 
 Your role:
 - Help the founder clarify goals, prioritize work, and execute across company setup, product, design, finance, and operations.

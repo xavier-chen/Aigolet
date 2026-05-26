@@ -1,6 +1,6 @@
 {
   "app": {
-    "name": "AIgolet",
+    "name": "Aigolet",
     "tagline": "用 AI 经营你的一人公司"
   },
   "nav": {
@@ -469,7 +469,7 @@
     "themeDark": "深色主题",
     "themeLightLabel": "明亮",
     "themeDarkLabel": "深色",
-    "about": "关于 AIgolet",
+    "about": "关于 Aigolet",
     "llm": {
       "title": "LLM 提供商",
       "description": "配置大语言模型 API，用于同事推理。API Key 通过 Electron 安全存储加密保存。",

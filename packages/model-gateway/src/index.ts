@@ -211,7 +211,7 @@ export class StubModelProvider implements ModelProvider {
     }
 
     return {
-      content: `[stub:${request.modelId}] ${userText || 'Hello from AIgolet!'}`,
+      content: `[stub:${request.modelId}] ${userText || 'Hello from Aigolet!'}`,
       finishReason: 'stop',
     };
   }

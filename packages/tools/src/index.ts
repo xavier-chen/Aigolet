@@ -341,7 +341,7 @@ export function createDefaultToolRegistry(options?: ExtendedToolOptions): InMemo
         id: 'list_files',
         name: 'list_files',
         description:
-          'List files and folders in the workspace directory (~/.algolet/workspace/). Use for browsing documents before reading.',
+          'List files and folders in the workspace directory (~/.aigolet/workspace/). Use for browsing documents before reading.',
         inputSchema: {
           type: 'object',
           properties: {

@@ -1,4 +1,4 @@
-# AIgolet Next
+# Aigolet
 
 <p align="center">
   <strong>帮你经营一人公司的 AI 联合创始人。</strong><br/>
@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <a href="https://algolet.com"><strong>algolet.com</strong></a>
+  <a href="https://aigolet.com"><strong>aigolet.com</strong></a>
 </p>
 
 <p align="center">
@@ -26,13 +26,13 @@
 
 ## 概述
 
-**AIgolet Next**（品牌名 **[Algolet](https://algolet.com)**）是面向**独立创始人**的本地优先桌面平台。它将事件溯源编排器、SQLite 持久化、可审计日志与 Electron UI 整合为统一的创始人驾驶舱。
+**Aigolet**（品牌名 **[Aigolet](https://aigolet.com)**）是面向**独立创始人**的本地优先桌面平台。它将事件溯源编排器、SQLite 持久化、可审计日志与 Electron UI 整合为统一的创始人驾驶舱。
 
 产品目标：
 
 > 早晨打开应用，知道今天最重要的事；与记得公司上下文的 AI 联合创始人协作；结束时留下决策、产出与资金跑道的清晰记录。
 
-本仓库为**自研 TypeScript monorepo**，借鉴 [OpenClaw](https://github.com/openclaw/openclaw) 生态理念（Skills、工具调用、创始人工作流），但**不嵌入** OpenClaw Gateway。协议、持久化与审计层完全独立。数据目录 `~/.algolet/`，编排器端口 **`:3847`**。
+本仓库为**自研 TypeScript monorepo**，借鉴 [OpenClaw](https://github.com/openclaw/openclaw) 生态理念（Skills、工具调用、创始人工作流），但**不嵌入** OpenClaw Gateway。协议、持久化与审计层完全独立。数据目录 `~/.aigolet/`，编排器端口 **`:3847`**。
 
 ---
 
@@ -103,8 +103,8 @@ flowchart LR
 ### 安装与运行
 
 ```bash
-git clone https://github.com/xavier-chen/AIgolet-next.git
-cd AIgolet-next
+git clone https://github.com/xavier-chen/Aigolet.git
+cd Aigolet
 pnpm install
 pnpm start
 ```
@@ -121,8 +121,8 @@ pnpm start
 
 | 路径 | 用途 |
 |------|------|
-| `~/.algolet/aigolet.db` | SQLite 数据库 |
-| `~/.algolet/workspace/` | 文件、上传、产出物 |
+| `~/.aigolet/aigolet.db` | SQLite 数据库 |
+| `~/.aigolet/workspace/` | 文件、上传、产出物 |
 
 可通过 `AIGOLET_DATA_DIR` 覆盖。
 
@@ -245,11 +245,11 @@ pnpm --filter @aigolet-next/persistence test
 
 ## 与 Aigolet-app / OpenClaw
 
-| | **AIgolet-next** | **Aigolet-app** |
+| | **Aigolet** | **Aigolet-app** |
 |--|------------------|-----------------|
 | 运行时 | 自研编排器 | 嵌入 OpenClaw |
 | 端口 | `:3847` | `:18789` |
-| 数据 | `~/.algolet/` | `~/.openclaw/` |
+| 数据 | `~/.aigolet/` | `~/.openclaw/` |
 
 ---
 
@@ -274,6 +274,6 @@ pnpm --filter @aigolet-next/persistence test
 | [`docs/OPEN_SOURCE.md`](docs/OPEN_SOURCE.md) | License guide (English) |
 | [`CONTRIBUTING.zh-CN.md`](CONTRIBUTING.zh-CN.md) | 贡献指南 |
 
-**摘要：** 可阅读、运行、修改代码；若**分发**或**对外提供网络服务**，须在同一许可下提供相应源代码。**Algolet / AIgolet 商标**不在本许可范围内。
+**摘要：** 可阅读、运行、修改代码；若**分发**或**对外提供网络服务**，须在同一许可下提供相应源代码。**Aigolet / Aigolet 商标**不在本许可范围内。
 
 如需在 AGPL 义务之外的商业授权，请联系 `legal@aigolet.com`（请替换为正式邮箱）。

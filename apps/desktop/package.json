@@ -2,7 +2,7 @@
   "name": "@aigolet-next/desktop",
   "version": "0.1.0",
   "private": true,
-  "description": "AIgolet desktop — founder workspace",
+  "description": "Aigolet desktop — founder workspace",
   "main": "dist-electron/main/index.js",
   "scripts": {
     "dev": "pnpm run build:electron && concurrently -k \"pnpm run dev:vite\" \"pnpm run dev:electron\"",

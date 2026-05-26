@@ -1153,7 +1153,7 @@ app.route('/', createFounderRoutes({
   onBrainChange: notifyBrainChange,
 }));
 
-console.log(`[server] AIgolet orchestrator starting on :${PORT}`);
+console.log(`[server] Aigolet orchestrator starting on :${PORT}`);
 console.log(`[server] Data directory: ${resolveDataDir()}`);
 console.log(`[server] Workspace: ${workspaceDir}`);
 console.log(`[server] Agents: ${listEnabledAgents(stores.agentStore).length} enabled`);

@@ -42,7 +42,7 @@ import type {
   SessionRepository,
 } from '@aigolet-next/orchestrator';
 import type { SessionMessage } from '@aigolet-next/protocol';
-import type { AlgoletDatabase } from './database.js';
+import type { AigoletDatabase } from './database.js';
 import { openDatabase, resolveDatabasePath } from './database.js';
 import { createFounderStores, type FounderStores } from './founder-stores.js';
 
@@ -57,7 +57,7 @@ function namespaceKey(ns: MemoryNamespace): string {
 export class SqliteEventStore implements EventStore {
   private readonly aggregateVersions = new Map<string, number>();
 
-  constructor(private readonly db: AlgoletDatabase) {
+  constructor(private readonly db: AigoletDatabase) {
     const rows = this.db
       .prepare(
         `SELECT aggregate_id, MAX(version) AS max_version FROM domain_events GROUP BY aggregate_id`,
@@ -147,7 +147,7 @@ export class SqliteEventStore implements EventStore {
 }
 
 export class SqliteRunRepository implements RunRepository {
-  constructor(private readonly db: AlgoletDatabase) {}
+  constructor(private readonly db: AigoletDatabase) {}
 
   async get(id: string): Promise<Run | null> {
     const row = this.db.prepare('SELECT * FROM runs WHERE id = ?').get(id) as
@@ -222,7 +222,7 @@ export class SqliteRunRepository implements RunRepository {
 }
 
 export class SqliteSessionRepository implements SessionRepository {
-  constructor(private readonly db: AlgoletDatabase) {}
+  constructor(private readonly db: AigoletDatabase) {}
 
   async get(id: string): Promise<Session | null> {
     const row = this.db.prepare('SELECT * FROM sessions WHERE id = ?').get(id) as
@@ -283,7 +283,7 @@ export class SqliteSessionRepository implements SessionRepository {
 }
 
 export class SqliteSessionMessageRepository implements SessionMessageRepository {
-  constructor(private readonly db: AlgoletDatabase) {}
+  constructor(private readonly db: AigoletDatabase) {}
 
   async append(message: Omit<SessionMessage, 'id' | 'createdAt'>): Promise<SessionMessage> {
     const stored: SessionMessage = {
@@ -329,7 +329,7 @@ export class SqliteSessionMessageRepository implements SessionMessageRepository 
 }
 
 export class SqliteMemoryStore implements MemoryStore {
-  constructor(private readonly db: AlgoletDatabase) {}
+  constructor(private readonly db: AigoletDatabase) {}
 
   async stage(record: Omit<MemoryRecord, 'id' | 'createdAt'>): Promise<MemoryRecord> {
     const staged: MemoryRecord = {
@@ -461,7 +461,7 @@ export class SqliteMemoryStore implements MemoryStore {
 }
 
 export class SqliteAuditLedger implements AuditLedger {
-  constructor(private readonly db: AlgoletDatabase) {}
+  constructor(private readonly db: AigoletDatabase) {}
 
   async append(
     event: Omit<AuditEvent, 'sequence' | 'hash' | 'previousHash'>,
@@ -560,7 +560,7 @@ export class SqliteAuditLedger implements AuditLedger {
 }
 
 export class SqliteSkillStore {
-  constructor(private readonly db: AlgoletDatabase) {}
+  constructor(private readonly db: AigoletDatabase) {}
 
   list(): Skill[] {
     const rows = this.db
@@ -659,7 +659,7 @@ export class SqliteSkillStore {
 }
 
 export class SqliteAgentStore {
-  constructor(private readonly db: AlgoletDatabase) {}
+  constructor(private readonly db: AigoletDatabase) {}
 
   list(): StoredAgent[] {
     const rows = this.db
@@ -771,7 +771,7 @@ export class SqliteAgentStore {
 }
 
 export class SqliteCronJobStore {
-  constructor(private readonly db: AlgoletDatabase) {}
+  constructor(private readonly db: AigoletDatabase) {}
 
   list(): CronJob[] {
     const rows = this.db
@@ -876,7 +876,7 @@ export class SqliteCronJobStore {
 }
 
 export class SqliteOrgNodeStore {
-  constructor(private readonly db: AlgoletDatabase) {}
+  constructor(private readonly db: AigoletDatabase) {}
 
   list(): OrgNode[] {
     const rows = this.db
@@ -1002,7 +1002,7 @@ export class SqliteOrgNodeStore {
 }
 
 export class SqliteSecretaryStore {
-  constructor(private readonly db: AlgoletDatabase) {}
+  constructor(private readonly db: AigoletDatabase) {}
 
   list(): Secretary[] {
     const rows = this.db
@@ -1122,7 +1122,7 @@ function defaultPermissionsForType(type: Secretary['type']): SecretaryPermission
 }
 
 export class SqliteMcpServerStore {
-  constructor(private readonly db: AlgoletDatabase) {}
+  constructor(private readonly db: AigoletDatabase) {}
 
   list(): McpServer[] {
     const rows = this.db
@@ -1217,7 +1217,7 @@ export class SqliteMcpServerStore {
 }
 
 export class SqliteEmbeddingConfigStore {
-  constructor(private readonly db: AlgoletDatabase) {}
+  constructor(private readonly db: AigoletDatabase) {}
 
   get(): EmbeddingConfig {
     const row = this.db.prepare('SELECT * FROM embedding_config WHERE id = 1').get() as
@@ -1250,7 +1250,7 @@ export class SqliteEmbeddingConfigStore {
 }
 
 export class SqliteLlmConfigStore {
-  constructor(private readonly db: AlgoletDatabase) {}
+  constructor(private readonly db: AigoletDatabase) {}
 
   get(): LlmProviderConfig {
     const row = this.db.prepare('SELECT * FROM llm_config WHERE id = 1').get() as
@@ -1292,7 +1292,7 @@ export class SqliteLlmConfigStore {
 }
 
 export interface PersistentStores {
-  db: AlgoletDatabase;
+  db: AigoletDatabase;
   eventStore: SqliteEventStore;
   runRepo: SqliteRunRepository;
   sessionRepo: SqliteSessionRepository;
@@ -1350,7 +1350,7 @@ export {
   type ResetCounts,
 } from './admin-reset.js';
 export { rebuildProjections, type RebuildProjectionsOptions, type RebuildProjectionsResult } from './rebuild-projections.js';
-export { openDatabase, resolveDataDir, resolveDatabasePath, resolveWorkspaceDir, type AlgoletDatabase, DEFAULT_ORG_ROOT_ID } from './database.js';
+export { openDatabase, resolveDataDir, resolveDatabasePath, resolveWorkspaceDir, type AigoletDatabase, DEFAULT_ORG_ROOT_ID } from './database.js';
 export {
   canAccessVisibility,
   computeSessionVisibility,

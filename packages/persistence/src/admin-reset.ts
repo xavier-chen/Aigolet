@@ -1,4 +1,4 @@
-import type { AlgoletDatabase } from './database.js';
+import type { AigoletDatabase } from './database.js';
 
 export interface ResetCounts {
   memoryRecords: number;
@@ -8,15 +8,15 @@ export interface ResetCounts {
   domainEvents: number;
 }
 
-function deleteCount(db: AlgoletDatabase, sql: string): number {
+function deleteCount(db: AigoletDatabase, sql: string): number {
   return Number(db.prepare(sql).run().changes);
 }
 
-export function resetMemoryRecords(db: AlgoletDatabase): number {
+export function resetMemoryRecords(db: AigoletDatabase): number {
   return deleteCount(db, 'DELETE FROM memory_records');
 }
 
-export function resetConversations(db: AlgoletDatabase): ResetCounts {
+export function resetConversations(db: AigoletDatabase): ResetCounts {
   const sessionMessages = deleteCount(db, 'DELETE FROM session_messages');
   const runs = deleteCount(db, 'DELETE FROM runs');
   const sessions = deleteCount(db, 'DELETE FROM sessions');
@@ -28,7 +28,7 @@ export function resetConversations(db: AlgoletDatabase): ResetCounts {
   return { memoryRecords: 0, sessionMessages, sessions, runs, domainEvents };
 }
 
-export function resetAllApplicationData(db: AlgoletDatabase): ResetCounts {
+export function resetAllApplicationData(db: AigoletDatabase): ResetCounts {
   const memoryRecords = resetMemoryRecords(db);
   const conversations = resetConversations(db);
   return { ...conversations, memoryRecords };

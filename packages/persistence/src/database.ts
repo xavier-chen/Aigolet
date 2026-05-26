@@ -6,10 +6,10 @@ import { ORG_RANK } from '@aigolet-next/protocol';
 
 export const SCHEMA_VERSION = 6;
 
-export type AlgoletDatabase = DatabaseSync;
+export type AigoletDatabase = DatabaseSync;
 
 export function resolveDataDir(): string {
-  const dir = process.env.AIGOLET_DATA_DIR ?? join(homedir(), '.algolet');
+  const dir = process.env.AIGOLET_DATA_DIR ?? join(homedir(), '.aigolet');
   if (!existsSync(dir)) {
     mkdirSync(dir, { recursive: true });
   }
@@ -28,12 +28,12 @@ export function resolveDatabasePath(): string {
   return join(resolveDataDir(), 'aigolet.db');
 }
 
-function columnExists(db: AlgoletDatabase, table: string, column: string): boolean {
+function columnExists(db: AigoletDatabase, table: string, column: string): boolean {
   const rows = db.prepare(`PRAGMA table_info(${table})`).all() as Array<{ name: string }>;
   return rows.some((r) => r.name === column);
 }
 
-function addColumnIfMissing(db: AlgoletDatabase, table: string, column: string, ddl: string): void {
+function addColumnIfMissing(db: AigoletDatabase, table: string, column: string, ddl: string): void {
   if (!columnExists(db, table, column)) {
     db.exec(`ALTER TABLE ${table} ADD COLUMN ${column} ${ddl}`);
   }
@@ -311,7 +311,7 @@ const MIGRATIONS: string[] = [
   `CREATE INDEX IF NOT EXISTS idx_proposals_status ON proposals(status, created_at DESC)`,
 ];
 
-function runSchemaMigrations(db: AlgoletDatabase): void {
+function runSchemaMigrations(db: AigoletDatabase): void {
   addColumnIfMissing(db, 'agents', 'org_node_id', 'TEXT');
   addColumnIfMissing(db, 'agents', 'allowed_tools_json', 'TEXT');
   addColumnIfMissing(db, 'agents', 'allowed_skills_json', 'TEXT');
@@ -328,7 +328,7 @@ function runSchemaMigrations(db: AlgoletDatabase): void {
 
 export const DEFAULT_ORG_ROOT_ID = 'org-founder';
 
-function seedOrgNodes(db: AlgoletDatabase): void {
+function seedOrgNodes(db: AigoletDatabase): void {
   const count = db.prepare('SELECT COUNT(*) AS c FROM org_nodes').get() as { c: number };
   if (count.c > 0) return;
 
@@ -345,7 +345,7 @@ function seedOrgNodes(db: AlgoletDatabase): void {
   insert.run('org-staff', '专员', ORG_RANK.STAFF, 'org-manager', 0, '#ffedd5', now, now);
 }
 
-function seedSecretaries(db: AlgoletDatabase): void {
+function seedSecretaries(db: AigoletDatabase): void {
   const count = db.prepare('SELECT COUNT(*) AS c FROM secretaries').get() as { c: number };
   if (count.c > 0) return;
 
@@ -392,7 +392,7 @@ function seedSecretaries(db: AlgoletDatabase): void {
   );
 }
 
-export function openDatabase(dbPath?: string): AlgoletDatabase {
+export function openDatabase(dbPath?: string): AigoletDatabase {
   const path = dbPath ?? resolveDatabasePath();
   const db = new DatabaseSync(path);
   db.exec('PRAGMA journal_mode = WAL');

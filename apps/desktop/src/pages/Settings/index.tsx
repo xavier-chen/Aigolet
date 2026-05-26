@@ -513,7 +513,7 @@ export function SettingsPage() {
       <Card>
         <CardTitle>{t('settings.about')}</CardTitle>
         <CardDescription>
-          AIgolet Next v0.1.0 — Event-sourced orchestrator for one-person companies.
+          Aigolet v0.1.0 — Event-sourced orchestrator for one-person companies.
         </CardDescription>
       </Card>
     </div>
