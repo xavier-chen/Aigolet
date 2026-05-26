@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #fffbf7;
+    --bg-secondary: #ffffff;
+    --bg-card: #ffffff;
+    --bg-sidebar: rgba(255, 255, 255, 0.55);
+    --text-primary: #1e293b;
+    --text-muted: #64748b;
+    --accent: #f97316;
+    --accent-soft: #ffedd5;
+    --border: rgba(253, 230, 138, 0.2);
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.6);
+    --radius-sm: 0.5rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.25rem;
+    --shadow-soft: 0 2px 8px rgba(249, 115, 22, 0.08);
+    --shadow-card: 0 4px 24px rgba(15, 23, 42, 0.06);
+  }
+
+  .dark {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-card: #1e293b;
+    --bg-sidebar: rgba(15, 23, 42, 0.85);
+    --text-primary: #f1f5f9;
+    --text-muted: #94a3b8;
+    --accent: #fb923c;
+    --accent-soft: rgba(251, 146, 60, 0.15);
+    --border: rgba(148, 163, 184, 0.15);
+    --glass-bg: rgba(30, 41, 59, 0.75);
+    --glass-border: rgba(148, 163, 184, 0.12);
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans antialiased transition-colors duration-300;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(251, 146, 60, 0.15), transparent),
+      radial-gradient(ellipse 60% 40% at 100% 0%, rgba(56, 189, 248, 0.08), transparent),
+      radial-gradient(ellipse 50% 30% at 0% 100%, rgba(52, 211, 153, 0.08), transparent);
+  }
+
+  .dark body {
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(251, 146, 60, 0.08), transparent),
+      radial-gradient(ellipse 60% 40% at 100% 0%, rgba(56, 189, 248, 0.05), transparent),
+      radial-gradient(ellipse 50% 30% at 0% 100%, rgba(52, 211, 153, 0.05), transparent);
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply backdrop-blur-xl shadow-card transition-colors duration-300;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-500 via-orange-400 to-amber-500 bg-clip-text text-transparent;
+  }
+
+  .drag-region {
+    -webkit-app-region: drag;
+  }
+
+  .no-drag {
+    -webkit-app-region: no-drag;
+  }
+}

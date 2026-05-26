@@ -1,0 +1,36 @@
+{
+  "name": "@aigolet-next/server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --import tsx --test src/**/*.test.ts",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@aigolet-next/agent-runtime": "workspace:*",
+    "@aigolet-next/audit": "workspace:*",
+    "@aigolet-next/founder": "workspace:*",
+    "@aigolet-next/mcp": "workspace:*",
+    "@aigolet-next/memory": "workspace:*",
+    "@aigolet-next/model-gateway": "workspace:*",
+    "@aigolet-next/orchestrator": "workspace:*",
+    "@aigolet-next/persistence": "workspace:*",
+    "@aigolet-next/protocol": "workspace:*",
+    "@aigolet-next/tools": "workspace:*",
+    "@hono/node-server": "^1.14.4",
+    "hono": "^4.7.11",
+    "ws": "^8.18.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.21",
+    "@types/ws": "^8.18.1",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  }
+}

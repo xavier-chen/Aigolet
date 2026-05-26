@@ -1,0 +1,34 @@
+{
+  "name": "aigolet-next",
+  "version": "0.1.0",
+  "private": true,
+  "license": "AGPL-3.0-or-later",
+  "description": "Next-generation Algolet platform — one-person company with AI",
+  "packageManager": "pnpm@10.33.4",
+  "scripts": {
+    "prestart": "node scripts/ensure-orchestrator-port.mjs",
+    "start": "concurrently -k -n server,desktop \"pnpm --filter @aigolet-next/server dev\" \"pnpm --filter @aigolet-next/desktop dev\"",
+    "dev": "turbo dev --filter=@aigolet-next/server --filter=@aigolet-next/desktop --filter=@aigolet-next/founder --filter=@aigolet-next/protocol --filter=@aigolet-next/orchestrator --filter=@aigolet-next/persistence --filter=@aigolet-next/memory --filter=@aigolet-next/audit --filter=@aigolet-next/tools --filter=@aigolet-next/model-gateway --filter=@aigolet-next/agent-runtime",
+    "build": "turbo build",
+    "rebuild-projections": "pnpm --filter @aigolet-next/cli build && node packages/cli/dist/index.js",
+    "lint": "turbo lint",
+    "typecheck": "turbo typecheck",
+    "clean": "turbo clean && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.21",
+    "concurrently": "^9.1.2",
+    "eslint": "^9.28.0",
+    "turbo": "^2.5.4",
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "electron",
+      "esbuild"
+    ]
+  }
+}

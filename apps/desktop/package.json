@@ -1,0 +1,45 @@
+{
+  "name": "@aigolet-next/desktop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AIgolet desktop — founder workspace",
+  "main": "dist-electron/main/index.js",
+  "scripts": {
+    "dev": "pnpm run build:electron && concurrently -k \"pnpm run dev:vite\" \"pnpm run dev:electron\"",
+    "dev:vite": "vite",
+    "dev:electron": "wait-on tcp:5174 http-get://127.0.0.1:3847/api/runs dist-electron/main/index.js && cross-env VITE_DEV_SERVER_URL=http://localhost:5174 node scripts/start-electron.mjs",
+    "build": "pnpm run build:electron && tsc -p tsconfig.json --noEmit && vite build",
+    "build:electron": "tsc -p tsconfig.electron.json",
+    "lint": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.electron.json --noEmit",
+    "typecheck": "pnpm run lint",
+    "clean": "rm -rf dist dist-electron"
+  },
+  "dependencies": {
+    "@aigolet-next/protocol": "workspace:*",
+    "clsx": "^2.1.1",
+    "gsap": "^3.13.0",
+    "i18next": "^25.2.1",
+    "lucide-react": "^0.511.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-i18next": "^15.5.2",
+    "react-router-dom": "^7.6.1",
+    "tailwind-merge": "^3.3.0",
+    "zustand": "^5.0.5"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.6",
+    "@types/react-dom": "^19.1.5",
+    "@vitejs/plugin-react": "^4.5.0",
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "electron": "^36.3.1",
+    "postcss": "^8.5.4",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vite-plugin-electron-renderer": "^0.14.6",
+    "wait-on": "^8.0.3"
+  }
+}
