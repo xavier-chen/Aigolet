@@ -1,8 +1,12 @@
 # AIgolet Next
 
 <p align="center">
-  <strong>一人公司 AI 操作系统</strong><br/>
-  细致入微的 AI 联合创始人 —— 简单流程，强大深度。
+  <strong>帮你经营一人公司的 AI 联合创始人。</strong><br/>
+  在一个本地优先的创始人驾驶舱里，规划、决策、执行并追踪你的事业。
+</p>
+
+<p align="center">
+  <a href="https://algolet.com"><strong>algolet.com</strong></a>
 </p>
 
 <p align="center">
@@ -22,7 +26,7 @@
 
 ## 概述
 
-**AIgolet Next**（品牌名 **Algolet**）是面向**独立创始人**的本地优先桌面平台。它将事件溯源编排器、SQLite 持久化、可审计日志与 Electron UI 整合为统一的创始人驾驶舱。
+**AIgolet Next**（品牌名 **[Algolet](https://algolet.com)**）是面向**独立创始人**的本地优先桌面平台。它将事件溯源编排器、SQLite 持久化、可审计日志与 Electron UI 整合为统一的创始人驾驶舱。
 
 产品目标：
 

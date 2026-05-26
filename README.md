@@ -1,8 +1,12 @@
 # AIgolet Next
 
 <p align="center">
-  <strong>Founder Operating Platform for solo entrepreneurs</strong><br/>
-  An AI co-founder with simple flows and deep capability — not a feature dump.
+  <strong>Your AI co-founder for running a one-person company.</strong><br/>
+  Plan, decide, ship, and track your business in one local-first founder cockpit.
+</p>
+
+<p align="center">
+  <a href="https://algolet.com"><strong>algolet.com</strong></a>
 </p>
 
 <p align="center">
@@ -22,7 +26,7 @@
 
 ## Overview
 
-**AIgolet Next** (brand: **Algolet**) is a local-first desktop platform built for **one-person companies**. It combines an event-sourced orchestrator, SQLite persistence, audit-grade logging, and a polished Electron UI into a single founder cockpit.
+**AIgolet Next** (brand: **[Algolet](https://algolet.com)**) is a local-first desktop platform built for **one-person companies**. It combines an event-sourced orchestrator, SQLite persistence, audit-grade logging, and a polished Electron UI into a single founder cockpit.
 
 The product goal is straightforward:
 
